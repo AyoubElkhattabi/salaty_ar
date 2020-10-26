@@ -1,0 +1,1 @@
+Droid1,Droid2,Droid3 used for arabic language from this site  (url : "https://arbfonts.com/arabic_fonts/font-weights-Droid-Sans-Arabic")

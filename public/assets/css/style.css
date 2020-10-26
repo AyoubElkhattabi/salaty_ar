@@ -1,0 +1,557 @@
+/*Start Fonts*/
+/*url : https://arbfonts.com/arabic_fonts/font-weights-Droid-Sans-Arabic*/
+@font-face {
+    font-family: droid;
+    src: url(../fonts/droid.ttf);
+  }
+
+  @font-face {
+    font-family: digital;
+    src: url(../fonts/digital.ttf);
+  }
+  /*
+  @font-face {
+    font-family: droid3;
+    src: url(../fonts/droid3.ttf);
+  }
+*/
+/*End Fonts*/
+body
+{
+  font-family: droid;
+  background-color:#FFF;
+
+}
+
+.digital{
+    font-family: digital;
+    letter-spacing: 1.5px;
+}
+
+.nextPrayerActiv{
+    color:black;
+    background:white;
+}
+/*Start Style For navBar*/
+nav
+{
+	height: 100%;
+	position: absolute;
+	top: 0;
+	width: 100%;
+	z-index: 1;
+}
+.nav
+{
+	background-color: #607D8B;
+	background-image: linear-gradient(45deg, black, transparent);
+	margin-bottom: 3px;
+	position: relative;
+	top: 0;
+}
+.nav1
+{
+	align-items: center;
+	display: flex;
+	justify-content: space-between;
+}
+#icon-bars{
+	width:17.5px;
+	height:20px;
+}
+.logo a
+{
+	color: white;
+	font-size: 25px;
+	font-weight: bold;
+	text-decoration: none;
+}
+.items
+{
+	align-items: center;
+	display: flex;
+	flex-direction: row-reverse;
+	list-style: none;
+}
+.item
+{
+	border-left: 1px solid #ddd;
+	color: white;
+	padding: 15px;
+}
+.item a
+{
+	color: inherit;
+	font-size: 20px;
+	text-decoration: none;
+}
+.iconmenu
+{
+	font-size: 20px;
+}
+.activeitem,.item:hover
+{
+	background-color: white;
+    color: black;
+	transition: .7s;
+}
+.list-items-mobile
+{
+	background-color: #fff;
+	list-style: none;
+	text-align: right;
+}
+.items-mobile
+{
+	height: 100% !important;
+	height: auto;
+	left: -100%;
+	position: relative;
+	transition: all 0.7s ease 0s;
+  z-index: 0;
+  overflow: auto;
+}
+.item-mobile
+{
+	border-bottom: 1px solid #ddd;
+	height: 50px;
+	line-height: 50px;
+}
+.item-mobile a
+{
+	color: black;
+	font-size: 20px;
+	text-decoration: none;
+}
+.item-mobile:hover
+{
+	background-color: #ddd;
+}
+.showmenu
+{
+	display: block;
+	transition: .7s;
+}
+.drawer
+{
+	background-color: rgba(0,0,0,.4);
+	height: 100%;
+}
+
+/*End Style For navBar*/
+
+
+/*Start Style For Header */
+.main
+{
+	margin-top: 63px;
+	position: relative;
+	text-align: center;
+	z-index: 1;
+}
+header
+{
+	background-color: #627E8C;
+	background-image: linear-gradient(45deg, black, transparent);
+	color: white;
+	direction: rtl;
+	padding: 40px 0px;
+}
+.select-area
+{
+	background-color: white;
+	border: 2px solid #ddd;
+	border-radius: 20px;
+	margin: 7px;
+	padding: 10px;
+	text-align: right;
+}
+.select-area select
+{
+	appearance: none;
+	background: white;
+	border: 0px;
+	height: 25px;
+	text-align: center;
+	width: 200px;
+}
+.icons-select
+{
+	color: black;
+	font-size: 20px;
+}
+.btn-header
+{
+	font-size: 17px;
+}
+.btn-header button
+{
+	border: 2px solid #ddd;
+	border-radius: 12px;
+	margin: 7px;
+	padding: 5px 17px;
+}
+.border-circles
+{
+	background: url('../images/circles.png');
+	background-size: auto;
+	background-size: contain;
+	height: 10px;
+	position: relative;
+	top: -6px;
+}
+.container-fluid h1
+{
+	line-height: unset;
+}
+.container-fluid h2
+{
+	line-height: unset;
+}
+/*End Style For Header*/
+
+/* Start Style For BreadCramb*/
+.breadcramb
+{
+  direction: rtl;
+  background-color: #F1F1F1;
+  margin-top:10px;
+  margin-bottom: 15px;
+  border-radius: 15px;
+}
+.breadcramb ul
+{
+  list-style: none;
+}
+.breadcramb ul li
+{
+  margin:1px;
+  padding:5px 3px;
+}
+.breadcramb ul li a
+{
+  color:black;
+  text-decoration: none;
+}
+.line-separator
+{
+  height: 100%;
+  width: 3px;
+  background-color:black;
+  transform: rotate(24deg);
+  margin: 0;
+  padding: 0;
+}
+/* End Style For BreadCramb*/
+
+/* Start Style For Content */
+.content
+{
+	background-color: #F1F1F1;
+	border-radius: 15px;
+	direction: rtl;
+	margin: 0px auto 10px auto;
+	padding-top: 20px;
+	padding-bottom: 20px;
+}
+.country-box
+{
+	background-color: white;
+	border-radius: 8px;
+	box-shadow: -2px 2px 6px 2px rgb(221, 221, 221);
+	direction: rtl;
+	height: 100px;
+	margin: 20px 10px;
+	position: relative;
+	width: 200px;
+}
+.flag-circles
+{
+	border: 4px solid #fff;
+	border-radius: 50px;
+	display: block;
+	height: 50px;
+	position: absolute;
+	right: 37%;
+	top: -25px;
+	width: 50px;
+}
+.namecountry-ar
+{
+	font-size: 20px;
+	line-height: 100px;
+	text-align: center;
+}
+.namecountry-en
+{
+	background-color: #0081FF;
+	border-radius: 0px 8px 0px 8px;
+	border-right: 2px solid #EAEAEA;
+	border-top: 2px solid #EAEAEA;
+	bottom: 0;
+	color: white;
+	font-size: 10px;
+	font-weight: bold;
+	left: 0px;
+	padding: 2px;
+	position: absolute;
+}
+/*End Style For Content*/
+
+
+
+/*start cities box*/
+.city-box
+{
+	width: 200px;
+	background-color: white;
+	border-radius: 20px 5px;
+	padding: 10px;
+	margin: 10px;
+	text-align: right;
+	box-shadow: 2px 2px 3px 1px #a8a1a1;
+	text-decoration: none;
+}
+.city-box:hover
+{
+	background-color: #F1F1F1;
+	transition: .7s;
+	text-decoration: none;
+}
+
+/*End Cities Box*/
+
+/**/
+.nextpray
+{
+	margin-top:10px;
+	margin-bottom:10px;
+}
+.nextpray div
+{
+	width: 100%;
+	/*padding: 5px;*/
+	padding:5px 0px;
+	background-color:  #5F7A87;
+	border-radius: 15px;
+}
+.border-raduis-top
+{
+	border-radius: 7px 7px 0px 0px !important;
+}
+.dateinfo
+{
+	/*background-color: yellow;*/
+	text-align: right;
+	margin-top:10px;
+	margin-bottom:10px;
+	font-size: 18px;
+
+}
+.dateinfo div
+{
+	width: 100%;
+	padding: 5px !important;
+	background-color:  #5F7A87;
+	border-radius: 15px;
+}
+.dateinfo div div
+{
+	padding: 5px 10px 5px 0px !important;
+}
+.datainfo-row
+{
+	border-radius: 0px !important;
+	border-bottom: 1px solid white;
+}
+.box-shadow
+{
+	box-shadow: 2px 2px 3px 1px #a8a1a1;
+}
+.praying-planning
+{
+	background-color: #5F7A87;
+	margin-top:10px;
+	margin-bottom: 10px;
+	border-radius: 15px;
+	color: white;
+    font-size: 20px;
+    overflow: hidden;
+}
+.nameoftime
+{
+	width:120px;
+}
+/*
+.praying-planning div
+{
+
+}
+.info-city
+{
+
+}
+*/
+.info-of-city
+{
+	text-align: center;
+	background-color: white !important;
+	color:black;
+	border-radius: 8px 8px 0px 0px !important;
+}
+.info-of-city-data
+{
+	border-left:1px solid white;
+	border-right:1px solid white;
+}
+
+.nextpray-time{
+    font-size: 37px !important;
+    font-weight: bold;
+}
+.nextpray-name{
+    font-size: 30px;
+    font-weight: bold;
+    color: red;
+}
+
+.nextpray-whitebox
+{
+	background-color: white !important;
+	border-radius: 0px !important;
+	font-size: 20px;
+
+}
+.color-white
+{
+	color:white;
+}
+.border-radius-bottom
+{
+	border-radius: 0px 0px 8px 8px !important;
+}
+
+/**/
+
+
+
+
+
+
+
+
+
+/* Strat Style For Pagination*/
+
+.Pagination
+{
+  background-color: #F1F1F1;
+  border-radius: 15px;
+  padding-left:10px;
+  padding-right: 10px;
+ }
+ .Pagination *
+ {
+  list-style: none;
+  text-decoration: none !important;
+ }
+.Pagination ul
+{
+  direction: rtl;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  list-style: none;
+}
+.Pagination div ul li a
+{
+  text-decoration: none;
+}
+.Pagination-item
+{
+  margin-left: 1px;
+  margin-right: 1px;
+  padding:9px 20px;
+}
+.Pagination-item:hover
+{
+  background-color: #fff;
+  text-decoration: none ;
+  transition: .7s;
+}
+/* End Style For Pagination*/
+
+/* Start Style For Footer */
+footer
+{
+  background-color: #F1F1F1;
+  direction: rtl;
+  border-radius: 15px;
+  margin-top:30px;
+}
+.footer
+{
+  color:black;
+}
+.footer-name
+{
+  text-align: right;
+  padding:12px;
+  font-size: 16px;
+  border-bottom: 2px solid white;
+}
+.list-footer
+{
+  list-style: none;
+  text-align: right;
+}
+.list-footer li a i
+{
+  padding-left: 10px;
+}
+.list-footer li
+{
+  padding-top: 10px;
+}
+.programmer-info
+{
+  padding: 15px;
+  border-top: 2px solid white;
+}
+/* End Style For Footer */
+
+
+
+
+
+
+
+/* Very Small devices (landscape phones, 0px and up)*/
+@media (min-width: 0px) {
+  .container-fluid h1{font-size: 24px;}
+  .container-fluid h2{font-size: 19px;}
+ }
+
+/* Small devices (landscape phones, 576px and up)*/
+@media (min-width: 576px) {
+	.container-fluid h1{font-size: 27px;}
+	.container-fluid h2{font-size: 22px;}
+ }
+
+/* Medium devices (tablets, 768px and up)*/
+@media (min-width: 768px) {
+	.container-fluid h1{font-size: 31px;}
+	.container-fluid h2{font-size: 26px;}
+}
+
+/* Large devices (desktops, 992px and up)*/
+@media (min-width: 992px) {
+  .container-fluid h1{font-size: 35px;}
+  .container-fluid h2{font-size: 30px;}
+}
+
+/* Extra large devices (large desktops, 1200px and up)*/
+@media (min-width: 1200px) {
+  .container-fluid h1{font-size: 39px;}
+  .container-fluid h2{font-size: 33px;}
+}
