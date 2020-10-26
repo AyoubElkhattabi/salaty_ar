@@ -73,8 +73,9 @@ class LostPassword extends Controller
         $user->password = Hash::make($request->password);
         $user->save();
 
-        // delete recorde of reset password
-        $check->delete();
+        // delete all recorde of reset password under selected email
+        $allRecords = PasswordReset::where('email',$request->email)->delete();
+
 
         // go login
         return redirect(route('redirect'))->with([
