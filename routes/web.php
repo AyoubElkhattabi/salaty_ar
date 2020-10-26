@@ -1,9 +1,9 @@
 <?php
 
-use App\Http\Controllers\auth\LoginController;
-use App\Http\Controllers\auth\LostPassword;
+use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\Auth\LostPassword;
 use App\Http\Controllers\Auth\RedirectController;
-use App\Http\Controllers\auth\RegisterController;
+use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\CityController;
 use App\Http\Controllers\CountryController;
 use App\Http\Controllers\InfoController;
