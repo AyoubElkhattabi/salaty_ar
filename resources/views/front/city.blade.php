@@ -48,7 +48,7 @@
         <ul class="list-breadcramb d-flex">
         <li> <a href="{{route('homepage')}}"><i class="fas fa-home iconmenu"></i> اوقات الصلاة اليوم</a></li>
         <li>\</li>
-        <li><a href="{{route('country',$city->country->id)}}"><input type="image" src="{{asset('storage/images/flags/'.$city->country->flag)}}" alt="" style="width:20px;height:15px;"> {{$city->country->name_ar}}</a></li>
+        <li><a href="{{route('country',$city->country->id)}}">{{$city->country->name_ar}}</a></li>
         <li>\</li>
         <li>{{$city->name_ar}}</li>
         </ul>
@@ -105,33 +105,33 @@
     <div class="praying-planning box-shadow pr-3 pr-md-0">
         <div class="row justify-content-around flex-column flex-md-row ">
 
-            <div class="d-flex flex-row flex-md-column col-12 col-md-2 @if($prayersInfo->nextPrayer == 'Fajr')nextPrayerActiv @endif">
-                <div class="p-2 nameoftime"> <i class="far fa-moon"></i> الفجر</div>
+            <div class="d-flex flex-row flex-md-column col-12 col-md-2 align-items-center @if($prayersInfo->nextPrayer == 'Fajr')nextPrayerActiv @endif">
+                <div class="p-2 nameoftime"> <div><i class="far fa-moon"></i></div> <div>الفجر</div></div>
                 <div class="p-2 digital" >{{ $prayersInfo->prayerTimes['Fajr']}}</div>
             </div>
 
-            <div class="d-flex flex-row flex-md-column col-12 col-md-2 @if($prayersInfo->nextPrayer == 'Sunrise')nextPrayerActiv @endif">
-                <div class="p-2 nameoftime"><i class="fas fa-cloud-sun"></i> الشروق</div>
+            <div class="d-flex flex-row flex-md-column col-12 col-md-2 align-items-center @if($prayersInfo->nextPrayer == 'Sunrise')nextPrayerActiv @endif">
+                <div class="p-2 nameoftime"> <div><i class="fas fa-cloud-sun"></i></div> <div>الشروق</div></div>
                 <div class="p-2 digital" >{{$prayersInfo->prayerTimes['Sunrise']}}</div>
             </div>
 
-            <div class="d-flex flex-row flex-md-column col-12 col-md-2 @if($prayersInfo->nextPrayer == 'Dhuhr')nextPrayerActiv @endif">
-                <div class="p-2 nameoftime" > <i class="fas fa-sun"></i> الظهر</div>
+            <div class="d-flex flex-row flex-md-column col-12 col-md-2 align-items-center @if($prayersInfo->nextPrayer == 'Dhuhr')nextPrayerActiv @endif">
+                <div class="p-2 nameoftime"> <div><i class="fas fa-sun"></i></div> <div>الظهر</div></div>
                 <div class="p-2 digital" >{{$prayersInfo->prayerTimes['Dhuhr']}}</div>
             </div>
 
-            <div class="d-flex flex-row flex-md-column col-12 col-md-2 @if($prayersInfo->nextPrayer == 'Asr')nextPrayerActiv @endif">
-                <div class="p-2 nameoftime" > <i class="far fa-sun"></i> العصر</div>
+            <div class="d-flex flex-row flex-md-column col-12 col-md-2 align-items-center @if($prayersInfo->nextPrayer == 'Asr')nextPrayerActiv @endif">
+                <div class="p-2 nameoftime"> <div><i class="far fa-sun"></i></div> <div>العصر</div></div>
                 <div class="p-2 digital" >{{$prayersInfo->prayerTimes['Asr']}}</div>
             </div>
 
-            <div class="d-flex flex-row flex-md-column col-12 col-md-2 @if($prayersInfo->nextPrayer == 'Maghrib')nextPrayerActiv @endif">
-                <div class="p-2 nameoftime"> <i class="fas fa-cloud-sun"></i> المغرب</div>
+            <div class="d-flex flex-row flex-md-column col-12 col-md-2 align-items-center @if($prayersInfo->nextPrayer == 'Maghrib')nextPrayerActiv @endif">
+                <div class="p-2 nameoftime"> <div><i class="fas fa-cloud-sun"></i></div> <div>المغرب</div></div>
                 <div class="p-2 digital" >{{$prayersInfo->prayerTimes['Maghrib']}}</div>
             </div>
 
-            <div class="d-flex flex-row flex-md-column col-12 col-md-2 @if($prayersInfo->nextPrayer == 'Isha')nextPrayerActiv @endif">
-                <div class="p-2 nameoftime"> <i class="fas fa-moon"></i> العشاء</div>
+            <div class="d-flex flex-row flex-md-column col-12 col-md-2 align-items-center @if($prayersInfo->nextPrayer == 'Isha')nextPrayerActiv @endif">
+                <div class="p-2 nameoftime"> <div><i class="fas fa-moon"></i></div> <div>العشاء</div></div>
                 <div class="p-2 digital" >{{$prayersInfo->prayerTimes['Isha']}}</div>
             </div>
         </div>
@@ -147,8 +147,6 @@
         <div class="dateinfo col-12">
             <div class="box-shadow" style="color: white;">
                 <div class="datainfo-row info-of-city"> <i class="fas fa-info-circle"></i>  معلومات عن مدينة {{$city->name_ar}}</div>
-                    <div class="datainfo-row info-of-city-data"> <span>البلد :</span>  <span> <input type="image" style="width:20px;height:15px;" src="{{asset('storage/images/flags/'.$city->country->flag)}}" alt=""> {{$city->country->name_ar}}</span></div>
-                    <div class="datainfo-row info-of-city-data"> <span>ولاية  : </span> <span>{{$city->state}}</span></div>
                     <div class="datainfo-row info-of-city-data"> <span>إحداثيات  : </span> <span style="display: inline-block;direction: ltr;">{{$city->latitude}}° N , {{$city->longitude}}° W</span></div>
                     <div class="datainfo-row info-of-city-data"> <span>المساحة : </span> <span> {{$city->space}} كم²</span></div>
                     <div class="datainfo-row info-of-city-data"> <span>التعداد السكاني : </span> <span>{{$city->population}} نسمة </span></div>

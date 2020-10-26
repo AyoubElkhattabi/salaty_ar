@@ -35,29 +35,15 @@
 
 
 
-
-
-
-
-
-
-
-
 @section('breadcramb')
     <div class="container breadcramb d-none d-md-block">
         <ul class="list-breadcramb d-flex">
         <li> <a href="{{route('homepage')}}"><i class="fas fa-home iconmenu"></i> اوقات الصلاة اليوم</a></li>
         <li>\</li>
-        <li><input type="image" src="{{asset('storage/images/flags/'.$country->flag)}}" alt="" style="width:20px;height:15px;"> {{$country->name_ar}}</li>
+        <li>{{$country->name_ar}}</li>
         </ul>
     </div>
 @endsection
-
-
-
-
-
-
 
 
 
