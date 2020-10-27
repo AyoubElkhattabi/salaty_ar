@@ -48,7 +48,7 @@
         <ul class="list-breadcramb d-flex">
         <li> <a href="{{route('homepage')}}"><i class="fas fa-home iconmenu"></i> اوقات الصلاة اليوم</a></li>
         <li>\</li>
-        <li><a href="{{route('country',$city->country->id)}}">{{$city->country->name_ar}}</a></li>
+        <li><a href="{{$city->country->path()}}">{{$city->country->name_ar}}</a></li>
         <li>\</li>
         <li>{{$city->name_ar}}</li>
         </ul>

@@ -51,7 +51,7 @@
     <div class=" d-flex justify-content-around justify-content-md-start flex-wrap align-items-start align-content-start">
         <!-- start country-->
         @forelse ($cities as $city)
-    <a href="{{route('city',$city->id)}}" class="city-box"> <i class="fas fa-map-marker-alt pl-1"></i>{{$city->name_ar}}</a>
+    <a href="{{$city->path()}}" class="city-box"> <i class="fas fa-map-marker-alt pl-1"></i>{{$city->name_ar}}</a>
         @empty
         No city To Show
         @endforelse

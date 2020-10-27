@@ -30,7 +30,6 @@ class UpdateCountry extends FormRequest
                     'description'=>'required|string|max:160',
                     'keywords'=>'required|string|min:100|max:255',
                     'flag'=>'image|mimes:jpeg,bmp,png,gif,bmp',
-                    'slug'=>'',
                     'timezone'=>'string|required',
                     'calcmethod'=>'required'
         ];

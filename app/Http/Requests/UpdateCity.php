@@ -34,7 +34,6 @@ class UpdateCity extends FormRequest
             'space'      =>'integer',
             'population' =>'integer',
             'country_id'  =>'required',
-            'slug'       =>'',
             'latitude'   =>'required|numeric',
             'longitude'  =>'required|numeric'
         ];

@@ -6,6 +6,7 @@ use App\Http\Requests\StoreCity;
 use App\Http\Requests\UpdateCity;
 use App\Models\City;
 use App\Models\Country;
+use App\Traits\MakeSlug;
 use DateTime;
 use DateTimezone;
 use Illuminate\Http\Request;
@@ -14,7 +15,7 @@ use App\Traits\PrayerInfo;
 
 class CityController extends Controller
 {
-    use PrayerInfo;
+    use PrayerInfo,MakeSlug;
     /**
      * Display a listing of the resource.
      *
@@ -68,7 +69,7 @@ class CityController extends Controller
         $city->state       = $request->state;
         $city->space       = $request->space;
         $city->population  = $request->population;
-        $city->slug        = $request->slug;
+        $city->slug        = $this->make_slug($request->title);
 
         $city->save();
 
@@ -123,7 +124,7 @@ class CityController extends Controller
         $city->timezone = $request->timezone;
         $city->population = $request->population;
         $city->country_id = $request->country_id;
-        $city->slug = $request->slug;
+        $city->slug = $this->make_slug($request->title);
         $city->space = $request->space;
         $city->latitude = $request->latitude;
         $city->longitude = $request->longitude;
@@ -152,10 +153,12 @@ class CityController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function city($id)
+    public function city(Request $request , $id)
     {
         //get data from database
         $city = City::findOrFail($id);
+        // check if the slug is match with database slug
+        if($city->slug !== $request->route('slug')) abort(404);
         // set time zone for city
         $timeZone = (empty($city->timezone)?$city->country->timezone : $city->timezone );
 

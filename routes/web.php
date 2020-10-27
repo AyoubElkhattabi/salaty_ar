@@ -22,8 +22,8 @@ use Illuminate\Support\Facades\Route;
 
 /*########## [ Begin frontEnd route] ##########*/
 Route::get('/',[CountryController::class,'homepage'])->name('homepage');;
-Route::get('/country-{country_id}',[CountryController::class,'country'])->name('country');
-Route::get('/city-{id}',[CityController::class,'city'])->name('city');
+Route::get('/country-{country_id}/{slug}',[CountryController::class,'country'])->name('country');
+Route::get('/city-{city_id}/{slug}',[CityController::class,'city'])->name('city');
 /*########## [ End frontEnd route] ##########*/
 
 

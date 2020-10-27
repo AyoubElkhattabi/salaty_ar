@@ -30,7 +30,6 @@ class StoreCountry extends FormRequest
                     'description'=>'required|string|max:160',
                     'keywords'=>'required|string|min:100|max:255',
                     'flag'=>'required|image|mimes:jpeg,bmp,png,gif,bmp',
-                    'slug'=>'',
                     'timezone'=>'required',
                     'calcmethod'=>'required'
         ];

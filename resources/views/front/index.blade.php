@@ -97,7 +97,7 @@
             <div class="country-box">
             <img class="flag-circles" src="{{asset('storage/images/flags/'.$country->flag)}}" alt="">
                     <div class="overflow-hidden" style="height:100%; width:100%">
-                    <a href="{{route('country',$country->id)}}">
+                    <a href="{{$country->path()}}">
                         <div class="namecountry-ar"><i class="fas fa-map-marker-alt pl-1"></i>{{$country->name_ar}}</div>
                             <div class="namecountry-en">{{$country->name_en}}<i class="fas fa-map-marker-alt"></i> </div>
                         </a>

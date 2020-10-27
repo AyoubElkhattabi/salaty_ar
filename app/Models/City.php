@@ -15,6 +15,12 @@ class City extends Model
     public function country(){
         return $this->belongsTo(Country::class,'country_id','id');
     }
-
     ##################### [  End Relationship  ] #####################
+
+    ##################### [  Begin Generate Path  ] ##################
+    public function path()
+    {
+        return url("/city-{$this->id}/".$this->slug);
+    }
+    ##################### [  End   Generate Path  ] ##################
 }

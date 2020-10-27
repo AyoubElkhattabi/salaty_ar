@@ -34,7 +34,6 @@ class StoreCity extends FormRequest
             'space'      =>'integer|nullable',
             'population' =>'integer|nullable',
             'country_id'  =>'required',
-            'slug'       =>'',
             'latitude'   =>'required|numeric',
             'longitude'  =>'required|numeric'
         ];

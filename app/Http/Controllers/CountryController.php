@@ -7,6 +7,7 @@ use App\Http\Requests\UpdateCountry;
 use App\Models\City;
 use App\Models\Country;
 use App\Models\Info;
+use App\Traits\MakeSlug;
 use App\Traits\UploadImage;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Config;
@@ -14,7 +15,7 @@ use Illuminate\Support\Facades\Config;
 class CountryController extends Controller
 {
 
-    use UploadImage;
+    use UploadImage,MakeSlug;
 
     /**
      * Display a listing of the resource.
@@ -64,7 +65,7 @@ class CountryController extends Controller
         $country->description = $request->description;
         $country->keywords    = $request->keywords;
         $country->flag        = $flag['name'];
-        $country->slug        = $request->slug;
+        $country->slug        = $this->make_slug($request->title);
         $country->timezone    = $request->timezone ;
         $country->calcmethod  = $request->calcmethod;
 
@@ -125,7 +126,7 @@ class CountryController extends Controller
         $country->title       = $request->title;
         $country->description = $request->description;
         $country->keywords    = $request->keywords;
-        $country->slug        = $request->slug;
+        $country->slug        = $this->make_slug($request->title);
         $country->timezone    = $request->timezone ;
         $country->calcmethod  = $request->calcmethod;
 
@@ -156,7 +157,7 @@ class CountryController extends Controller
     public function homepage()
     {
         $homeInfo = Info::first(); // get index info from table info
-        $countries = Country::select('id','name_ar','name_en','flag')->paginate(Config::get('constants.pagination.countries'),['*'],'countries');
+        $countries = Country::select('id','name_ar','name_en','flag','title','slug')->paginate(Config::get('constants.pagination.countries'),['*'],'countries');
         return view('front.index',[
             'homeInfo' => $homeInfo,
             'countries'=> $countries,
@@ -167,9 +168,12 @@ class CountryController extends Controller
      * Show Country's cities  in front
      *
      */
-    public function country($id){
+    public function country(Request $request ,$id){
 
-        $country = Country::select('name_ar','name_en','title','description','keywords','flag')->findOrFail($id);
+        $country = Country::select('name_ar','name_en','title','description','keywords','flag','slug')->findOrFail($id);
+        // Begin check if the slug is match with database slug
+        if($request->route('slug')!==$country->slug) abort(404);
+
         $cities = Country::find($id)->cities()->paginate(Config::get('constants.pagination.cities'));
         return view('front.country',[
             'country'=>$country,
