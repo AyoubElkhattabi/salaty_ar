@@ -36,6 +36,23 @@
           <span>Site informations</span></a>
     </li>
 
+    <li class="nav-item @if( (strpos(Route::currentRouteName(), 'prefix') !== false)) active @endif">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePrefix" aria-expanded="false" aria-controls="#collapsePrefix">
+          <i class="fas fa-fw fa-cog"></i>
+          <span>Prefix</span>
+        </a>
+
+        <div id="collapsePrefix" class="collapse @if( (strpos(Route::currentRouteName(), 'prefix') !== false)) show @endif" aria-labelledby="headingTwo" data-parent="#accordionSidebar" style="">
+          <div class="bg-white py-2 collapse-inner rounded">
+            <h6 class="collapse-header">Custom Prefix:</h6>
+            <a class="collapse-item" href="{{route('country-prefix.create')}}">Create Country Prefix</a>
+            <a class="collapse-item" href="{{route('country-prefix.index')}}">Show All Country Prefixes</a>
+            <a class="collapse-item" href="{{route('city-prefix.create')}}">Create City Prefix</a>
+            <a class="collapse-item" href="{{route('city-prefix.index')}}">Show All City Prefixes</a>
+          </div>
+        </div>
+      </li>
+
     <li class="nav-item @if( (strpos(Route::currentRouteName(), 'countries') !== false)) active @endif">
       <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
         <i class="fas fa-fw fa-cog"></i>

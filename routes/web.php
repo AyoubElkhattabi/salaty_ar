@@ -7,6 +7,8 @@ use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\CityController;
 use App\Http\Controllers\CountryController;
 use App\Http\Controllers\InfoController;
+use App\Http\Controllers\PrefixCityCountroller;
+use App\Http\Controllers\PrefixCountryCountroller;
 use App\Http\Controllers\testController;
 use Illuminate\Support\Facades\Route;
 
@@ -29,6 +31,7 @@ Route::get('/city-{city_id}/{slug}',[CityController::class,'city'])->name('city'
 
 
 /*##########  [ Begin helper ]  ########## */
+Route::get('redirect',[RedirectController::class,'redirect'])->name('redirect');
 /*
   Utilisation :
   ------------
@@ -37,7 +40,6 @@ Route::get('/city-{city_id}/{slug}',[CityController::class,'city'])->name('city'
             'title'  => 'Title of page',
             'url'    => route( __ name of your route here__ )]);
 */
-Route::get('redirect',[RedirectController::class,'redirect'])->name('redirect');
 /*##########  [ end helper ]  ########## */
 
 
@@ -48,6 +50,8 @@ Route::group(['prefix' => 'admin', 'middleware'=>'auth'], function () {
     Route::resource('info'     , InfoController::class);
     Route::resource('countries', CountryController::class);
     Route::resource('cities'   , CityController::class);
+    Route::resource('country-prefix', PrefixCountryCountroller::class);
+    Route::resource('city-prefix', PrefixCityCountroller::class);
 });
 /*########## [ End admin route] ##########*/
 
