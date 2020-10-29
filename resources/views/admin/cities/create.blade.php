@@ -94,15 +94,6 @@ Add City
             </div>
         </div>
 
-        <div class="row m-3 py-3">
-            <label class="col-12 col-md-2"> State : </label>
-            <div class="col-12 col-md-8">
-                <input class=" form-control text-right direction-rtl" placeholder="Name Of State" type="text" name="state" maxlength="60" value="">
-                @error('state')
-                <small class="small-error" > <i class="fas fa-exclamation-triangle"> {{ $message }}</i></small>
-                @enderror
-            </div>
-        </div>
 
         <div class="row m-3 py-3">
             <label class="col-12 col-md-2"> Space : </label>
@@ -126,10 +117,11 @@ Add City
 
 
 
-        <div class="row m-3 py-3">
+        {{--
+            <div class="row m-3 py-3">
             <label class="col-12 col-md-2"> Title : </label>
             <div class="col-12 col-md-8">
-                <input class=" form-control text-right direction-rtl" placeholder="Title" type="text" name="title" maxlength="60" value="">
+                <input class=" form-control text-right direction-rtl" placeholder="Title" type="text" name="title" maxlength="60" value="" disabled>
                 @error('title')
                 <small class="small-error" > <i class="fas fa-exclamation-triangle"> {{ $message }}</i></small>
                 @enderror
@@ -139,7 +131,7 @@ Add City
         <div class="row m-3 py-3">
             <label class="col-12 col-md-2"> Description : </label>
             <div class="col-12 col-md-8">
-                <textarea class="form-control text-right direction-rtl"  name="description" maxlength="160" rows="4" ></textarea>
+                <textarea class="form-control text-right direction-rtl"  name="description" maxlength="160" rows="4" disabled ></textarea>
                 @error('description')
                 <small class="small-error" > <i class="fas fa-exclamation-triangle"> {{ $message }}</i></small>
                 @enderror
@@ -149,7 +141,7 @@ Add City
         <div class="row m-3 py-3">
             <label class="col-12 col-md-2"> Keywords : </label>
             <div class="col-12 col-md-8">
-                <textarea class="form-control text-right direction-rtl"  name="keywords" maxlength="255" rows="5"></textarea>
+                <textarea class="form-control text-right direction-rtl"  name="keywords" maxlength="255" rows="5" disabled></textarea>
                 @error('keywords')
                 <small class="small-error" > <i class="fas fa-exclamation-triangle"> {{ $message }}</i></small>
                 @enderror
@@ -160,12 +152,13 @@ Add City
         <div class="row m-3 py-3">
             <label class="col-12 col-md-2"> Slug : </label>
             <div class="col-12 col-md-8">
-                <input class=" form-control" placeholder="Slug" type="text" name="slug" value="">
+                <input class=" form-control" placeholder="Slug" type="text" name="slug" value="" disabled>
                 @error('slug')
                 <small class="small-error" > <i class="fas fa-exclamation-triangle"> {{ $message }}</i></small>
                 @enderror
             </div>
         </div>
+        --}}
 
 
         <div class="row m-3 py-3">

@@ -11,11 +11,12 @@ use App\Traits\MakeSlug;
 use App\Traits\UploadImage;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Config;
+use App\Traits\PrefixReplace;
 
 class CountryController extends Controller
 {
 
-    use UploadImage,MakeSlug;
+    use UploadImage,MakeSlug,PrefixReplace;
 
     /**
      * Display a listing of the resource.
@@ -50,6 +51,9 @@ class CountryController extends Controller
     {
         //$validator = $request->validate();
 
+        // get the
+        $automatcInfo = $this->prefixReplace('country',null,$request->name_ar);
+
         $country = new Country;
 
         // check if request has a file
@@ -61,11 +65,11 @@ class CountryController extends Controller
 
         $country->name_ar     = $request->name_ar;
         $country->name_en     = $request->name_en;
-        $country->title       = $request->title;
-        $country->description = $request->description;
-        $country->keywords    = $request->keywords;
+        $country->title       = $automatcInfo['title'];
+        $country->description = $automatcInfo['description'];
+        $country->keywords    = $automatcInfo['keywords'];
         $country->flag        = $flag['name'];
-        $country->slug        = $this->make_slug($request->title);
+        $country->slug        = $this->make_slug($automatcInfo['title']);
         $country->timezone    = $request->timezone ;
         $country->calcmethod  = $request->calcmethod;
 

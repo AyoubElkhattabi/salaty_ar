@@ -29,7 +29,6 @@ class UpdateCity extends FormRequest
             'title'      =>'required|string|max:60',
             'description'=>'required|string|max:160',
             'keywords'   =>'required|string|min:100|max:255',
-            'state'      =>'string|max:60',
             'timezone'   =>'string|nullable',
             'space'      =>'integer',
             'population' =>'integer',

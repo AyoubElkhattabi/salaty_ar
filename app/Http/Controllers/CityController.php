@@ -12,10 +12,11 @@ use DateTimezone;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Config;
 use App\Traits\PrayerInfo;
+use App\Traits\PrefixReplace;
 
 class CityController extends Controller
 {
-    use PrayerInfo,MakeSlug;
+    use PrayerInfo,MakeSlug,PrefixReplace;
     /**
      * Display a listing of the resource.
      *
@@ -54,22 +55,23 @@ class CityController extends Controller
      */
     public function store(StoreCity $request)
     {
-
+        //get title description and keywords automaticlly//
+        #first we need to get the name of country
+        $countryName = Country::select('name_ar')->find($request->country_id);
+        $automatcInfo = $this->prefixReplace('city',$request->name_ar,$countryName->name_ar);
         $city = new City;
-
-        $city->country_id   = $request->country_id;
+        $city->country_id  = $request->country_id;
         $city->name_ar     = $request->name_ar;
         $city->name_en     = $request->name_en;
         $city->timezone    = $request->timezone;
         $city->latitude    = $request->latitude;
         $city->longitude   = $request->longitude;
-        $city->title       = $request->title;
-        $city->description = $request->description;
-        $city->keywords    = $request->keywords;
-        $city->state       = $request->state;
+        $city->title       = $automatcInfo['title'];
+        $city->description = $automatcInfo['description'];
+        $city->keywords    = $automatcInfo['keywords'];
         $city->space       = $request->space;
         $city->population  = $request->population;
-        $city->slug        = $this->make_slug($request->title);
+        $city->slug        = $this->make_slug($automatcInfo['title']);
 
         $city->save();
 

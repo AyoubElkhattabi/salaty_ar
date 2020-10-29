@@ -95,16 +95,6 @@ Edit City
         </div>
 
         <div class="row m-3 py-3">
-            <label class="col-12 col-md-2"> State : </label>
-            <div class="col-12 col-md-8">
-                <input class=" form-control text-right direction-rtl" placeholder="Name Of State" type="text" name="state" maxlength="60" value="{{$city->state}}">
-                @error('state')
-                <small class="small-error" > <i class="fas fa-exclamation-triangle"> {{ $message }}</i></small>
-                @enderror
-            </div>
-        </div>
-
-        <div class="row m-3 py-3">
             <label class="col-12 col-md-2"> Space : </label>
             <div class="col-12 col-md-8">
                 <input class=" form-control" placeholder="Space" type="state" name="space" maxlength="60" value="{{$city->space}}">

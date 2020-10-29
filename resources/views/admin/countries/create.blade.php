@@ -80,52 +80,10 @@ Add Country
         </div>
 
         <div class="row m-3 py-3">
-            <label class="col-12 col-md-2"> Title : </label>
-            <div class="col-12 col-md-8">
-                <input class=" form-control text-right direction-rtl" placeholder="Title" type="text" name="title" maxlength="60" value="">
-                @error('title')
-                <small class="small-error" > <i class="fas fa-exclamation-triangle"> {{ $message }}</i></small>
-                @enderror
-            </div>
-        </div>
-
-        <div class="row m-3 py-3">
-            <label class="col-12 col-md-2"> Description : </label>
-            <div class="col-12 col-md-8">
-                <textarea class="form-control text-right direction-rtl" placeholder="Description"  name="description" maxlength="160" rows="4" ></textarea>
-                @error('description')
-                <small class="small-error" > <i class="fas fa-exclamation-triangle"> {{ $message }}</i></small>
-                @enderror
-            </div>
-        </div>
-
-        <div class="row m-3 py-3">
-            <label class="col-12 col-md-2"> Keywords : </label>
-            <div class="col-12 col-md-8">
-                <textarea class="form-control text-right direction-rtl" placeholder="Keywords"  name="keywords" maxlength="255" rows="5"></textarea>
-                @error('keywords')
-                <small class="small-error" > <i class="fas fa-exclamation-triangle"> {{ $message }}</i></small>
-                @enderror
-            </div>
-        </div>
-
-
-        <div class="row m-3 py-3">
             <label class="col-12 col-md-2"> Flag :  </label>
             <div class="col-12 col-md-8">
                 <input  type="file"  name="flag" >
                 @error('flag')
-                <small class="small-error" > <i class="fas fa-exclamation-triangle"> {{ $message }}</i></small>
-                @enderror
-            </div>
-        </div>
-
-
-        <div class="row m-3 py-3">
-            <label class="col-12 col-md-2"> Slug : </label>
-            <div class="col-12 col-md-8">
-                <input class=" form-control" type="text" placeholder="Slug" name="slug" value="">
-                @error('slug')
                 <small class="small-error" > <i class="fas fa-exclamation-triangle"> {{ $message }}</i></small>
                 @enderror
             </div>

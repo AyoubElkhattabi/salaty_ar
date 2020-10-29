@@ -7,6 +7,7 @@ use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\CityController;
 use App\Http\Controllers\CountryController;
 use App\Http\Controllers\InfoController;
+use App\Http\Controllers\testController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -62,11 +63,9 @@ Route::get('password/reset',[LostPassword::class,'index'])->name('lostpassword')
 Route::post('password/reset',[LostPassword::class,'reset'])->name('lostpassword.sendemail');
 Route::get('password/reset/{token}',[LostPassword::class,'showResetForm'])->name('lostpassword.newpassword');
 Route::post('password/update',[LostPassword::class,'updatePassword'])->name('password.update');
-
-
-// route for password reset Route::get('password/reser/')
 /*########## [ end auth route] ##########*/
 
-Route::get('mail', function(){
-    return view('mails.mail');
-});
+
+
+
+Route::get('test',[testController::class,'index']);

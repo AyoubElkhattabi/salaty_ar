@@ -26,9 +26,9 @@ class StoreCountry extends FormRequest
         return [
                     'name_ar'=>'required|string|min:3',
                     'name_en'=>'required|string|min:3',
-                    'title'=>'required|string|max:60',
-                    'description'=>'required|string|max:160',
-                    'keywords'=>'required|string|min:100|max:255',
+                   # 'title'=>'required|string|max:60',
+                   # 'description'=>'required|string|max:160',
+                   # 'keywords'=>'required|string|min:100|max:255',
                     'flag'=>'required|image|mimes:jpeg,bmp,png,gif,bmp',
                     'timezone'=>'required',
                     'calcmethod'=>'required'
