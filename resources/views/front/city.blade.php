@@ -12,7 +12,7 @@
 
 
 
-@section('description'){{$city->descriptio}}@endsection
+@section('description'){{$city->description}}@endsection
 
 
 

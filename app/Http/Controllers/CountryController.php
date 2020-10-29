@@ -49,10 +49,9 @@ class CountryController extends Controller
      */
     public function store(StoreCountry $request)
     {
-        //$validator = $request->validate();
 
-        // get the
-        $automatcInfo = $this->prefixReplace('country',null,$request->name_ar);
+        // generate the title description and keywords
+        $automaticInfo = $this->prefixReplace('country',null,$request->name_ar);
 
         $country = new Country;
 
@@ -65,11 +64,11 @@ class CountryController extends Controller
 
         $country->name_ar     = $request->name_ar;
         $country->name_en     = $request->name_en;
-        $country->title       = $automatcInfo['title'];
-        $country->description = $automatcInfo['description'];
-        $country->keywords    = $automatcInfo['keywords'];
+        $country->title       = $automaticInfo['title'];
+        $country->description = $automaticInfo['description'];
+        $country->keywords    = $automaticInfo['keywords'];
         $country->flag        = $flag['name'];
-        $country->slug        = $this->make_slug($automatcInfo['title']);
+        $country->slug        = $this->make_slug($automaticInfo['title']);
         $country->timezone    = $request->timezone ;
         $country->calcmethod  = $request->calcmethod;
 

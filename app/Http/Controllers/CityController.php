@@ -58,7 +58,7 @@ class CityController extends Controller
         //get title description and keywords automaticlly//
         #first we need to get the name of country
         $countryName = Country::select('name_ar')->find($request->country_id);
-        $automatcInfo = $this->prefixReplace('city',$request->name_ar,$countryName->name_ar);
+        $automaticInfo = $this->prefixReplace('city',$request->name_ar,$countryName->name_ar);
         $city = new City;
         $city->country_id  = $request->country_id;
         $city->name_ar     = $request->name_ar;
@@ -66,12 +66,12 @@ class CityController extends Controller
         $city->timezone    = $request->timezone;
         $city->latitude    = $request->latitude;
         $city->longitude   = $request->longitude;
-        $city->title       = $automatcInfo['title'];
-        $city->description = $automatcInfo['description'];
-        $city->keywords    = $automatcInfo['keywords'];
+        $city->title       = $automaticInfo['title'];
+        $city->description = $automaticInfo['description'];
+        $city->keywords    = $automaticInfo['keywords'];
         $city->space       = $request->space;
         $city->population  = $request->population;
-        $city->slug        = $this->make_slug($automatcInfo['title']);
+        $city->slug        = $this->make_slug($automaticInfo['title']);
 
         $city->save();
 

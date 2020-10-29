@@ -5,7 +5,7 @@ use App\Models\CityPrefix;
 use App\Models\CountryPrefix;
 
 trait PrefixReplace{
-    function prefixReplace($cityOrCountry,$city , $country){
+    function prefixReplace($cityOrCountry,$city, $country){
     $cityPrefix='city';
     $countryPrefix='country';
     if($cityOrCountry === 'city')
@@ -26,7 +26,8 @@ trait PrefixReplace{
             array($country,$city),
             $info->keywords
         );
-    }else if($cityOrCountry === 'country'){
+    }
+    else if($cityOrCountry === 'country'){
         $info = CountryPrefix::where('language','AR')->first();
         $title = str_replace($countryPrefix,$country,$info->title);
         $description = str_replace($countryPrefix,$country,$info->description);
