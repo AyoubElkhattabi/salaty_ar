@@ -26,6 +26,7 @@ Countries
             <th scope="col">#</th>
             <th scope="col">Flag</th>
             <th scope="col">Name</th>
+            <th scope="col">Status</th>
             <th scope="col">More info</th>
             <th scope="col">Actions</th>
           </tr>
@@ -43,6 +44,7 @@ Countries
               <div> {{$country->name_en}} </div>
 
            </td>
+           <td style="font-size: 30px;">@if($country->status === 0) <i class="fas fa-eye-slash"></i> @else  <i class="fas fa-eye"></i>  @endif</td>
            <td>
             <div><span class="text-primary" style="width: 90px;display: inline-block;"> created at : </span><span style="font-size:12px; color:#1cc88a;">{{$country->created_at}}</span> </div>
             <div><span class="text-primary" style="width: 90px;display: inline-block;"> updated at : </span><span style="font-size:12px; color:red;">{{$country->updated_at}}</span> </div>

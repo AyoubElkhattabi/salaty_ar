@@ -71,6 +71,7 @@ class CountryController extends Controller
         $country->slug        = $this->make_slug($automaticInfo['title']);
         $country->timezone    = $request->timezone ;
         $country->calcmethod  = $request->calcmethod;
+        $country->status      = $request->status;
 
 
         $country->save();
@@ -132,6 +133,7 @@ class CountryController extends Controller
         $country->slug        = $this->make_slug($request->title);
         $country->timezone    = $request->timezone ;
         $country->calcmethod  = $request->calcmethod;
+        $country->status      = $request->status;
 
         $country->save();
 
@@ -160,7 +162,7 @@ class CountryController extends Controller
     public function homepage()
     {
         $homeInfo = Info::first(); // get index info from table info
-        $countries = Country::select('id','name_ar','name_en','flag','title','slug')->paginate(Config::get('constants.pagination.countries'),['*'],'countries');
+        $countries = Country::select('id','name_ar','name_en','flag','title','slug')->where('status',1)->paginate(Config::get('constants.pagination.countries'),['*'],'countries');
         return view('front.index',[
             'homeInfo' => $homeInfo,
             'countries'=> $countries,
@@ -173,11 +175,13 @@ class CountryController extends Controller
      */
     public function country(Request $request ,$id){
 
-        $country = Country::select('name_ar','name_en','title','description','keywords','flag','slug')->findOrFail($id);
+        $country = Country::select('name_ar','name_en','title','description','keywords','flag','status','slug')->findOrFail($id);
         // Begin check if the slug is match with database slug
-        if($request->route('slug')!==$country->slug) abort(404);
+        // And
+        //check if status of country is visible not invisible
+        if($request->route('slug')!==$country->slug || $country->status === 0) abort(404);
 
-        $cities = Country::find($id)->cities()->paginate(Config::get('constants.pagination.cities'));
+        $cities = Country::find($id)->cities()->where('status',1)->paginate(Config::get('constants.pagination.cities'));
         return view('front.country',[
             'country'=>$country,
             'cities' =>$cities

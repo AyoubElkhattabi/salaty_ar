@@ -31,7 +31,8 @@ class UpdateCountry extends FormRequest
                     'keywords'=>'required|string|min:100|max:255',
                     'flag'=>'image|mimes:jpeg,bmp,png,gif,bmp',
                     'timezone'=>'string|required',
-                    'calcmethod'=>'required'
+                    'calcmethod'=>'required',
+                    'status'=>'required'
         ];
     }
 }

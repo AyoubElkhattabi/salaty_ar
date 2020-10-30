@@ -9,7 +9,7 @@ class City extends Model
 {
     use HasFactory;
     protected $table = 'cities';
-    protected $fillable = ['name_ar','name_ar','title','description','keywords','state','timezone','space','population','country_id','slug','latitude','longitude'];
+    protected $fillable = ['name_ar','name_ar','title','description','keywords','state','timezone','space','population','country_id','slug','latitude','longitude','status'];
 
     ##################### [ Begin Relationship ] #####################
     public function country(){

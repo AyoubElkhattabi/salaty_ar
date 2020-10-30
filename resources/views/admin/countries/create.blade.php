@@ -89,7 +89,23 @@ Add Country
             </div>
         </div>
 
+        <div class="row m-3 py-3">
+            <label class="col-12 col-md-2"> Country Status :  </label>
+            <div class="col-12 col-md-8">
+                <div class="">
+                    <input type="radio" name="status" value="1" checked="">
+                    <label>
+                    Visible
+                    </label>
 
+                    <input type="radio" name="status" value="0">
+                    <label>
+                    Invisible
+                    </label>
+
+                </div>
+            </div>
+        </div>
         <div class="row m-3 py-3">
             <button type="submit" class="btn btn-primary btn-lg btn-block">Create</button>
         </div>

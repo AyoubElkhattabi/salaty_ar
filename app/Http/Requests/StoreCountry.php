@@ -31,7 +31,8 @@ class StoreCountry extends FormRequest
                    # 'keywords'=>'required|string|min:100|max:255',
                     'flag'=>'required|image|mimes:jpeg,bmp,png,gif,bmp',
                     'timezone'=>'required',
-                    'calcmethod'=>'required'
+                    'calcmethod'=>'required',
+                    'status'=>'required'
         ];
     }
 }

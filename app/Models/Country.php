@@ -11,7 +11,7 @@ class Country extends Model
 {
     use HasFactory,MakeSlug;
     protected $table = 'countries';
-    protected $fillable = ['name_ar','name_en','title','description','keywords','flag','slug','timezone','calcmethod'];
+    protected $fillable = ['name_ar','name_en','title','description','keywords','flag','slug','status','timezone','calcmethod'];
 
     ##################### [ Begin Relationship ] #####################
     public function cities(){

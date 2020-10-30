@@ -24,7 +24,7 @@ class CityController extends Controller
      */
     public function index()
     {
-        $cities = City::select('id','name_en','name_ar','created_at','updated_at','country_id')->with(['country'=>function($req){
+        $cities = City::select('id','name_en','name_ar','created_at','status','updated_at','country_id')->with(['country'=>function($req){
             $req->select('id','name_en','flag');
         }])->paginate(Config::get('constants.pagination.adminCities'),['*'],'countries');
         $cities->makeHidden(['country_id']);
@@ -72,6 +72,7 @@ class CityController extends Controller
         $city->space       = $request->space;
         $city->population  = $request->population;
         $city->slug        = $this->make_slug($automaticInfo['title']);
+        $city->status      = $request->status;
 
         $city->save();
 
@@ -117,19 +118,20 @@ class CityController extends Controller
     public function update(UpdateCity $request, $id)
     {
         $city = City::findOrFail($id);
-        $city->name_ar = $request->name_ar;
-        $city->name_en = $request->name_en;
-        $city->title = $request->title;
+        $city->name_ar     = $request->name_ar;
+        $city->name_en     = $request->name_en;
+        $city->title       = $request->title;
         $city->description = $request->description;
-        $city->keywords = $request->keywords;
-        $city->state = $request->state;
-        $city->timezone = $request->timezone;
-        $city->population = $request->population;
-        $city->country_id = $request->country_id;
-        $city->slug = $this->make_slug($request->title);
-        $city->space = $request->space;
-        $city->latitude = $request->latitude;
-        $city->longitude = $request->longitude;
+        $city->keywords    = $request->keywords;
+        $city->state       = $request->state;
+        $city->timezone    = $request->timezone;
+        $city->population  = $request->population;
+        $city->country_id  = $request->country_id;
+        $city->slug        = $this->make_slug($request->title);
+        $city->space       = $request->space;
+        $city->latitude    = $request->latitude;
+        $city->longitude   = $request->longitude;
+        $city->status      = $request->status;
 
         $city->save();
 
@@ -160,7 +162,11 @@ class CityController extends Controller
         //get data from database
         $city = City::findOrFail($id);
         // check if the slug is match with database slug
-        if($city->slug !== $request->route('slug')) abort(404);
+        // AND
+        // Check if status is visible not invisible
+        // AND
+        // Check if status of country is visible not invisible
+        if($city->slug !== $request->route('slug') || $city->status === 0 || $city->country->status === 0 ) abort(404);
         // set time zone for city
         $timeZone = (empty($city->timezone)?$city->country->timezone : $city->timezone );
 
