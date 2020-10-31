@@ -35,19 +35,20 @@ body
 /*Start Style For navBar*/
 nav
 {
-	height: 100%;
+	/*height: 100%;
 	position: absolute;
 	top: 0;
 	width: 100%;
-	z-index: 1;
+	z-index: 1;*/
 }
 .nav
 {
 	background-color: #607D8B;
 	background-image: linear-gradient(45deg, black, transparent);
+	/*
 	margin-bottom: 3px;
 	position: relative;
-	top: 0;
+	top: 0;*/
 }
 .nav1
 {
@@ -103,13 +104,13 @@ nav
 }
 .items-mobile
 {
-	height: 100% !important;
-	height: auto;
-	left: -100%;
-	position: relative;
-	transition: all 0.7s ease 0s;
-  z-index: 0;
-  overflow: auto;
+position: absolute;
+width: 100%;
+height: 100%;
+z-index: 0;
+overflow: hidden;
+left: -100%;
+transition: all 0.7s ease 0s;
 }
 .item-mobile
 {
@@ -144,8 +145,9 @@ nav
 /*Start Style For Header */
 .main
 {
-	margin-top: 61px;
+	/*margin-top: 61px;
 	position: relative;
+	*/
 	text-align: center;
 	z-index: 1;
 }
